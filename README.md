@@ -64,7 +64,7 @@ plt.imshow(cv2.cvtColor(closed_image, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB
 plt.title("Closing Operation")
 plt.axis('off')
 
-```
+
 
 
 ```
