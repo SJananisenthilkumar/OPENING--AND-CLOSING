@@ -7,46 +7,64 @@ To implement Opening and Closing using Python and OpenCV.
 2. OpenCV
 ## Algorithm:
 ### Step1:
-<br>
-
+Import the necessary packages
 
 ### Step2:
-<br>
+Create the Text using cv2.putText
 
 ### Step3:
-<br>
+Create the structuring element
 
 ### Step4:
-<br>
+Use Opening operation
 
 ### Step5:
-<br>
+Use Closing Operation
 
  
 ## Program:
 
+
 ``` Python
 # Import the necessary packages
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
+# Create a blank image
 
-
-# Create the Text using cv2.putText
-
-
+image = np.zeros((500, 500, 3), dtype=np.uint8)
+# Add text on the image using cv2.putText
+font = cv2.FONT_HERSHEY_SIMPLEX
+cv2.putText(image, 'JANANI JAYARAMAN', (100, 250), font, 1, (255, 255, 255), 2, cv2.LINE_AA)
 
 # Create the structuring element
+kernel = np.ones((3, 3), np.uint8)
+
+# Display the input image
+plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB for displaying
+plt.title("Input Image with Text")
+plt.axis('off')
+
+
+# Opening is erosion followed by dilation
+opened_image = cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel)
+
+# Display the result of Opening
+plt.imshow(cv2.cvtColor(opened_image, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB
+plt.title("Opening Operation")
+plt.axis('off')
 
 
 
-# Use Opening operation
+# Closing is dilation followed by erosion
+closed_image = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
+# Display the result of Opening
+plt.imshow(cv2.cvtColor(closed_image, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB
+plt.title("Closing Operation")
+plt.axis('off')
 
-
-
-
-# Use Closing Operation
-
-
-
+```
 
 
 ```
@@ -56,6 +74,8 @@ To implement Opening and Closing using Python and OpenCV.
 <br>
 <br>
 <br>
+<img width="528" height="519" alt="image" src="https://github.com/user-attachments/assets/e83f787e-55d6-43d5-856a-3454cd35e66a" />
+
 <br>
 <br>
 <br>
@@ -64,6 +84,8 @@ To implement Opening and Closing using Python and OpenCV.
 <br>
 <br>
 <br>
+<img width="532" height="514" alt="image" src="https://github.com/user-attachments/assets/7ad66bd1-6537-4b31-8954-88c5835f345c" />
+
 <br>
 <br>
 <br>
@@ -72,6 +94,8 @@ To implement Opening and Closing using Python and OpenCV.
 <br>
 <br>
 <br>
+<img width="526" height="521" alt="image" src="https://github.com/user-attachments/assets/0ffbb003-0004-46eb-9ceb-fca50a4bdeb6" />
+
 <br>
 <br>
 <br>
